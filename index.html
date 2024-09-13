@@ -1,0 +1,264 @@
+<!-- 残タスク -------------------------------------------
+
+  ・input_form.htmlの作成から
+  ・ロゴの後ろが透けるようにする
+
+  簡単にする発想が必要。発想をせずにだらだらと長いプログラム、
+  長い時間をかけるのはNG。より簡潔に時間をすこしでも少なくできる工夫、発想をする。
+
+  カートの商品を入れたりするのを完璧じゃなくてもいいから
+  疑似的にjavascriptで表示できるようにした、ということにする。
+
+  ★カートのカウントをする処理は時間がかかって他のができなくなるから入れない。
+  ★サイズ分けはやめる。時間がかかるから。
+
+  カートに入れるボタンを押したときにカートページに遷移する。仕組みはスキップして、
+  疑似的にカートに入っているようにするだけにする。
+  購入ボタン押下後の決済画面
+  商品詳細ページ、ほかのすべてのページにも動く背景が来るようにする。
+
+  フッターのリンクはダミーはよろしくない。ちゃんとページへ遷移するようにする。
+  そこまでやらなくてもいいようにそもそも項目やボタンを入れないとか。
+  めんどくさいことをやったということが必要かもしれない。
+
+  考え方
+    ウィンドウの横幅を動かしたときに画像も連動して小さくなったり大きくなったりするようにした。
+    あえて横幅を固定になるようにはしていない。画像と画像のタイトルは連動して大きくなったり
+    小さくなったりできるため。
+    レスポンシブ対応としてスマホの時は画像は2列表示、PCの時は４列表示。
+  
+---------------------------------------------->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- 動く背景用にcanvasをbodyの下に入れていて、bodyの中身は[sectionタグの id=body]で囲むようにしています。 -->
+  <canvas id="canvas"></canvas>
+  <section id="body">
+
+    <header id="header">
+      <div class="header_top">
+        <h1 class="logo">
+          <a href="index.html">
+            <img src="img/logo/logo.png" alt="トップページ画像">
+          </a>
+        </h1>
+        <div class="menu">
+          <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="product.html">Item</a></li>
+              <li><a href="">DogWair</a></li>
+              <li><a href="">Popularity</a></li>
+              <li><a href="">Sale</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="cart">
+        <nav>
+          <ul>
+            <li><a href="">探す</a></li>
+            <li><a href="">カート</a></li>
+            <li><a href="">アカウント</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="main_visual fadeUp">
+      <img src="img/main/main1.jpg" alt="トップページ画像">
+    </div>
+
+    <main>
+      <section id="news">
+        <h2 class="scroll_up">お知らせ</h2>
+        <dl class="scroll_up">
+          <dt>2024.4.25</dt>
+          <dd>ペット雑誌「✕✕✕✕✕✕　3月号」に掲載していただきました。</dd>
+          <dt>2024.3.22</dt>
+          <dd>イベント「✕✕✕✕✕✕」にて当ストアの販売ブースで参加いたします。</dd>
+          <dt>2024.2.15</dt>
+          <dd>新コレクション「✕✕✕✕✕✕」の販売をスタートしました。</dd>
+          <dt>2024.1.10</dt>
+          <dd>ベビーサイズの「ワンチャンセーター」のラインナップを増やしました。</dd>
+        </dl>
+      </section>
+      <section id="collection">
+        <h2>Collection</h2>
+        <div class="fadeup_trigger">
+          <ul>
+            <!-- scroll_upクラスはli単位で付ける。スマホ版でも単体で動かせるようにするため。 -->
+            <li class="scroll_up">
+              <a href="product.html"><img src="img/img1.jpg" alt="画像"></a>
+              <p><a href="product.html">カラフルなさわやかTシャツ</a></p>
+              <p class="price">¥4,980(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img3.jpg" alt="画像"></a>
+              <p><a href="">サングラス、ビーチが似合うアロハシャツ</a></p>
+              <p class="price">¥5,280(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img2.jpg" alt="画像"></a>
+              <p><a href="">お出かけもおしゃれなブルーパーカー</a></p>
+              <p class="price">¥3,980(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img4.jpg" alt="画像"></a>
+              <p><a href="">麦わら帽子と蝶ネクタイの組み合わせ</a></p>
+              <p class="price">¥4,480(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img5.jpg" alt="画像"></a>
+              <p><a href="">かわいらしいピンクセーター</a></p>
+              <p class="price">¥5,280(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img6.jpg" alt="画像"></a>
+              <p><a href="">大人気のフード付きのパーカー</a></p>
+              <p class="price">¥3,480(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img7.jpg" alt="画像"></a>
+              <p><a href="">雨の日も安心なカッパ</a></p>
+              <p class="price">¥5,980(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img8.jpg" alt="画像"></a>
+              <p><a href="">お出かけ時にかっこいいセーター</a></p>
+              <p class="price">¥6,980(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img9.jpg" alt="画像"></a>
+              <p><a href="">冬のおでかけ用ジャンバー</a></p>
+              <p class="price">¥4,980(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img10.jpg" alt="画像"></a>
+              <p><a href="">さわやかストライプTシャツ</a></p>
+              <p class="price">¥6,980(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img11.jpg" alt="画像"></a>
+              <p><a href="">おしゃれなお店へのおでかけに似合うシャツ</a></p>
+              <p class="price">¥5,980(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img12.jpg" alt="画像"></a>
+              <p><a href="">ネイビーシャツ</a></p>
+              <p class="price">¥3,980(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img13.jpg" alt="画像"></a>
+              <p><a href="">寒い日に着せられるダウン</a></p>
+              <p class="price">¥4,980(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img14.jpg" alt="画像"></a>
+              <p><a href="">飼い主とおそろいのシャツで夏を満喫</a></p>
+              <p class="price">¥4,480(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img15.jpg" alt="画像"></a>
+              <p><a href="">レスリング風に着飾りたい時</a></p>
+              <p class="price">¥3,980(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img16.jpg" alt="画像"></a>
+              <p><a href="">チェック柄のセーター</a></p>
+              <p class="price">¥3,980(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img17.jpg" alt="画像"></a>
+              <p><a href="">ダウン風上着で寒い時も一緒</a></p>
+              <p class="price">¥3,980(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img18.jpg" alt="画像"></a>
+              <p><a href="">帽子とセットのロシアンテイストのジャケット</a></p>
+              <p class="price">¥4,980(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img19.jpg" alt="画像"></a>
+              <p><a href="">自宅でのんびり過ごせるパーカー</a></p>
+              <p class="price">¥3,980(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img20.jpg" alt="画像"></a>
+              <p><a href="">ハイネックセーター</a></p>
+              <p class="price">¥4,980(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img21.jpg" alt="画像"></a>
+              <p><a href="">雪も平気なフード付きダウン</a></p>
+              <p class="price">¥5,980(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img22.jpg" alt="画像"></a>
+              <p><a href="">室内でもおしゃれに過ごせるセーター</a></p>
+              <p class="price">¥5,980(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img23.jpg" alt="画像"></a>
+              <p><a href="">ボーダー柄のパーカーでお散歩を楽しみたい時に</a></p>
+              <p class="price">¥4,980(税込み)</p>
+            </li>
+            <li class="scroll_up">
+              <a href="#"><img src="img/img24.jpg" alt="画像"></a>
+              <p><a href="">普段とは違うお洒落を楽しみたい人のハイネックセーター</a></p>
+              <p class="price">¥6,980(税込み)</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="saito_setumei">
+          <h2 class="scroll_up">ドッグ専用ペットウェア販売　ペットフレンド</h2>
+          <div class="scroll_up">
+            <p>ペットフレンドは小〜中型犬cのペットウェアをご提供しています。</p>
+            <p>大好きな愛犬と一緒に過ごす時間に彩りを与え、ペットとファッションを楽しんで欲しい。</p>
+            <p>愛犬が大好きな方へ、より充実した思い出の一つになれるようにお手伝いします。</p>
+          </div>
+        </div>
+      </section>
+
+      <footer id="guide">
+        <ul>
+          <!-- scroll_upと同じクラスにしてしまうとscroll_upの方のjsの動きをしてしまうため、別クラスに分けています。 -->
+          <li class="scroll_animation fadein_bottom"><a href="#">プライバシーポリシー</a></li>
+        </ul>
+        <ul>
+          <li class="scroll_animation fadein_bottom"><a href="#">お問い合わせ</a></li>
+        </ul>
+        <ul>
+          <li class="scroll_animation fadein_bottom"><a href="#">会社概要</a></li>
+        </ul>
+      </footer>
+
+
+    </main>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+      </script>
+
+    <script src="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/3-2-3-1/js/3-2-3-1.js">
+    </script>
+
+    <script src="main.js"></script>
+  </section>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!---------------------------------------------
+　　カートページ
+---------------------------------------------->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <section id="body">
+    <header id="header">
+      <div class="header_top">
+        <h1 class="logo">
+          <a href="index.html">
+            <img src="img/logo/logo.png" alt="トップページ画像">
+          </a>
+        </h1>
+        <div class="menu">
+          <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="product.html">Item</a></li>
+              <li>DogWair</li>
+              <li>Popularity</li>
+              <li>Sale</li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="cart">
+        <nav>
+          <ul>
+            <li>探す</li>
+            <li>カート</li>
+            <li>アカウント</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+
+    <main id="main_cart_confirm">
+
+      <div class="cart_container">
+
+        <h1 class="cart_h1">カート</h1>
+
+        <div class="title_raw">
+          <div class="shohin">
+            <p>商品</p>
+          </div>
+          <div class="kakaku">
+            <p>価格</p>
+          </div>
+          <div class="suuryo">
+            <p>数量</p>
+          </div>
+          <div class="goukei">
+            <p>合計</p>
+          </div>
+        </div>
+
+
+        <div class="cart_price_img">
+          <div class="title_cart">
+            <h1 class="detail_title">カラフルなさわやかTシャツ</h1>
+          </div>
+          <div class="cart_confirm_img">
+            <img src="img/img1.jpg" alt="">
+          </div>
+          <div class="price_cart">
+            <p class="price">¥4,980<span class="zeikomi">(税込)</span></p>
+          </div>
+          <div class="suuryo_value">
+            <p>1</p>
+          </div>
+          <div class="goukei_value">
+            <p class="price">¥4,980<span class="zeikomi">(税込)</span></p>
+          </div>
+
+        </div>
+
+
+        <div class="cart_purchase">
+          <p><a href="input_form.html">購入手続きに進む</a></p>
+        </div>
+          
+      </div>
+
+    </main>
+
+
+
+    <section id="about">
+      <div class="saito_setumei">
+        <h2>ドッグ専用ペットウェア販売　ペットフレンド</h2>
+        <p>ペットフレンドは小〜中型犬のペットウェアをご提供しています。</p>
+        <p>大好きな愛犬と一緒に過ごす時間に彩りを与え、ペットとファッションを楽しんで欲しい。</p>
+        <p>愛犬が大好きな方へ、より充実した思い出の一つになれるようにお手伝いします。</p>
+      </div>
+    </section>
+
+    <footer id="guide">
+      <ul>
+        <!-- scroll_upと同じクラスにしてしまうとscroll_upの方のjsの動きをしてしまうため、別クラスに分けています。 -->
+        <li class="scroll_animation fadein_bottom"><a href="#">プライバシーポリシー</a></li>
+      </ul>
+      <ul>
+        <li class="scroll_animation fadein_bottom"><a href="#">お問い合わせ</a></li>
+      </ul>
+      <ul>
+        <li class="scroll_animation fadein_bottom"><a href="#">会社概要</a></li>
+      </ul>
+    </footer>
+
+
+    </main>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+      </script>
+
+    <script src="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/3-2-3-1/js/3-2-3-1.js">
+    </script>
+
+    <script src="main.js"></script>
+  </section>
+  </section>
+</body>
+
+</html>

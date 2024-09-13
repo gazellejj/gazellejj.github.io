@@ -1,0 +1,694 @@
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;  
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+
+
+/* ------------------------------------------------------------
+全体
+------------------------------------------------------------ */
+li {
+    list-style: none;
+}
+li a {
+    text-decoration: none;
+}
+
+
+/* ------------------------------------------------------------
+ヘッダー
+------------------------------------------------------------ */
+.logo img {
+    width: 200px;
+    margin-left: 30px;
+}
+
+header {
+    height:180px;
+    margin: 0 auto;
+}
+.header_top {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+
+/* flex指定はulまで含めないといけない */
+header .menu ul {
+    display: flex;
+}
+header .menu ul li:not(:last-child) {
+    padding-right: 30px;
+}
+
+header .cart ul {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 60px;
+}
+
+header .cart ul li:not(:last-child) {
+    padding-right: 30px;
+}
+.menu {
+    padding-right: 30px;
+}
+.cart {
+    padding-right: 30px;
+}
+.menu a {
+    color: #515151;
+}
+.cart a {
+    color: #515151;
+}
+
+/* ------------------------------------------------------------
+メインビジュアル
+------------------------------------------------------------ */
+.main_visual img {
+    width: 100%;
+    max-width: 1920px;
+    height: 700px;
+
+    /* 画像を引き伸ばさないための設定 */
+    object-fit: cover;
+}
+
+/* ------------------------------------------------------------
+メインビジュアルを下から表示させるアニメーション。初回だけ。
+------------------------------------------------------------ */
+.fadeUp {
+    animation-name: fadeUpAnime;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+
+@keyframes fadeUpAnime {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* ------------------------------------------------------------
+全体
+------------------------------------------------------------ */
+body {
+    font-family: Madera, sans-serif;
+    line-height: 1.4;
+
+}
+
+/* ------------------------------------------------------------
+動く背景用
+------------------------------------------------------------ */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 0;
+    background: white;
+    margin: 0;
+}
+canvas {
+    width: 100%;
+    height: 100%;
+}
+
+/* 動く背景が他の項目の裏側にくるための設定。これをしないと領域を使用してしまうため。 */
+    #canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    #body {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+/* ------------------------------------------------------------
+↑↑↑動く背景用↑↑↑
+------------------------------------------------------------ */
+
+
+
+main {
+    margin: 0 auto;
+    max-width: 1440px;
+}
+
+h2 {
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+
+/* ------------------------------------------------------------
+News
+------------------------------------------------------------ */
+#news h2 {
+    margin: 20px auto;
+}
+
+#news dl {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: solid 1px #ebebeb;
+}
+
+#news dt {
+    width: 10%;
+    padding: 15px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+#news dd {
+    width: 80%;
+    padding: 15px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+
+
+
+
+/* ------------------------------------------------------------
+Collection
+------------------------------------------------------------ */
+
+#collection h2 {
+    margin: 50px auto 20px 30px;
+}
+
+#collection ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* 
+    横幅最大１０００pxのうちの画像だけで23%×4=９２％が使用され、残った８％を
+    それぞれ4等分した２５％でそれぞれ両端に２％ずつ余白になります。
+*/
+
+#collection {
+    margin: 0 2%;
+}
+
+#collection li{
+    width: 23%;
+    margin-bottom: 60px;
+}
+
+
+#collection .collection_title {
+    width: 100%;
+}
+
+#collection p a {
+    text-decoration: none;
+    font-size: 12px;
+    color: #4b4b4b;
+}
+
+#collection .price ,.saito_setumei {
+    font-size: 14px;
+    color: #606060;
+    margin: 13px 0 0;
+}
+
+
+
+/* ------------------------
+scroll_up | 下から上へ出現。初回だけ。
+------------------------ */
+.scroll_up {
+    transition: 0.8s ease-in-out;
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+.scroll_up.on {
+    transform: translateY(0);
+    opacity: 1.0;
+}
+
+
+
+
+/* ------------------------------------------------------------
+about
+------------------------------------------------------------ */
+.saito_setumei {
+    border-top: #ebebeb solid 1px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    line-height: 3;
+}
+
+#about {
+    text-align: center;
+}
+
+
+
+
+/* ------------------------------------------------------------
+footer guide
+------------------------------------------------------------ */
+#guide a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #606060;
+}
+
+#guide {
+    border-top: #ebebeb solid 1px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+#guide li{
+    padding-top: 10px;
+}
+
+
+
+/* ------------------------
+fadein_bottom | 下から上へ出現。初回だけ。
+------------------------ */
+.fadein_bottom {
+    transition: 0.8s ease-in-out;
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+.fadein_bottom.active {
+    transform: translateY(0);
+    opacity: 1.0;
+}
+
+
+
+/* ------------------------------------------------------------
+detail  商品詳細ページ
+------------------------------------------------------------ */
+.detail {
+    display: flex;
+    margin: 0 20px;
+}
+
+/* この幅を固定にしてしまうと全体が右側に余白ができてしまうので%にした */
+.detail_img img{
+    width: 100%;
+}
+
+
+.detail_information {
+    display: flex;
+    flex-flow: column;
+}
+
+.detail_title {
+    text-align: left;
+    font-size: 17px;
+    color: #757575;
+    font-weight: 400;
+}
+.price {
+    font-size: 16px;
+    font-weight: 400;
+    color: #606060;
+}
+.zeikomi {
+    color: #606060;
+    font-size: 10px;
+}
+
+.size_and_cart {
+    display: flex;
+    /* background-color: skyblue; */
+    box-sizing: border-box;
+    padding: 30px 10px 15px 10px;
+    margin-bottom: 15px;
+    border-top: 1px solid #ebebeb;
+}
+.size_and_cart:nth-child(n+2) {
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 30px;
+}
+.size {
+    /* background-color: blue; */
+    /* text-align: left; */
+    width: 40%;
+    font-size: 16px;
+    line-height: 22px;
+    color: #606060;
+    white-space: nowrap;
+}
+.cart_box {
+    display: inline-block;
+    width: 70%;
+    box-sizing: content-box;
+    text-align: center;
+    white-space: nowrap;
+    padding-left: 20px;
+}
+
+.cart_button {
+    color: #ffffff;
+    background-color: #807B74;
+    text-decoration: none;
+    padding: 15px 40px;
+}
+.setumei {
+    background-color: #F9F9F9;
+    font-size: 12px;
+    line-height: 2em;
+    padding: 10px;
+
+}
+
+.size_and_cart_btn {
+    display: flex;
+    flex-flow: column;
+}
+
+
+
+/* ------------------------------------------------------------
+cart confirm  カートの中身ページ
+------------------------------------------------------------ */
+#main_cart_confirm {
+    margin: 0 2%;
+}
+.cart_h1 {
+    font-size: 20px;
+    text-align: center;
+    color: #757575;
+}
+
+.title_raw {
+    display: flex;
+    border-bottom: 1px solid #ebebeb;
+    padding: 35px 0 16px 0;
+}
+.shohin {
+    flex-basis: 55%;
+    color: #606060;
+}
+.kakaku {
+    flex-basis: 15%;
+    color: #606060;
+}
+.suuryo {
+    flex-basis: 15%;
+    color: #606060;
+}
+.goukei {
+    flex-basis: 15%;
+    color: #606060;
+}
+
+
+.cart_status {
+    text-align: center;
+}
+.cart_price_img {
+    display: flex;
+    padding: 25px 0 25px;
+    border-bottom: 1px solid #ebebeb;
+
+}
+.title_cart {
+    display: flex;
+    flex-basis: 35%;
+}
+.cart_confirm_img {
+    flex-basis: 20%;
+}
+.price_cart {
+    flex-basis: 15%;
+}
+.suuryo_value {
+    flex-basis: 15%;
+}
+.goukei_value {
+    flex-basis: 15%;
+}
+
+.cart_purchase {
+    box-sizing: content-box;
+    text-align: right;
+    white-space: nowrap;
+
+    margin: 30px 0 30px;
+}
+.cart_purchase p a{
+    bottom: unset;
+    text-decoration: none;
+
+    color: #ffffff;
+    background-color: #807B74;
+    text-decoration: none;
+    padding: 15px 40px;
+}
+
+
+
+
+
+
+/* ------------------------------------------------------------
+レスポンシブ対応
+------------------------------------------------------------ */
+@media screen and (max-width:600px){
+
+    main {
+        align-items: center;
+    }
+    /*-----------------------------------------------
+    ヘッダー
+    -----------------------------------------------*/
+    header .header_top {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        
+    }
+    header .menu {
+        padding-top: 10px;
+    }
+
+    header .cart ul li:not(:last-child) {
+        padding-right: 15px;
+    }
+
+    /*-----------------------------------------------
+    News
+    -----------------------------------------------*/
+    #news {
+        padding: 0 4%;
+        
+    }
+    #news dl {
+        display: flex;
+        flex-flow: column;
+        border-top: solid 1px #ebebeb;
+        /* border:none; */
+    }
+    
+    #news dt {
+        /* width: 10%; */
+        width: 100%;
+        padding: 1px;
+        /* border-bottom: 1px solid #ebebeb; */
+        border:none;
+        /* background-color: skyblue; */
+    }
+    
+    #news dd {
+        /* width: 80%; */
+        width: 100%;
+        padding: 1px;
+        border-bottom: 1px solid #ebebeb;
+        /* border:none; */
+        /* background-color: yellow; */
+    }
+
+    /*-----------------------------------------------
+    Collection
+    -----------------------------------------------*/
+    /* 横幅最大６００pxのうちの画像だけで９２％が使用され、残った８％を
+    　　両端で分割して余白として使用します。
+        600pxを半分にしたときに300pxで50%のうちの46%が使用され、4%が残ります。
+        50%のうちの両端が2%になります。
+        そうすると
+    　　    全体の両端2%×2=4%　余白
+    　　    画像と画像の間の余白が2%+2%=4%
+        になります。
+    */
+    #collection {
+        margin: 0 4%;
+    }
+    #collection ul {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    /* 本来は最大600pxで１列に表示できた画像を46%サイズに小さくすることで２列表示できるようにし、
+    　　画像だけで600pxのうちの92%使用。8%が余ります。 */
+    #collection li{
+        width: 46%;
+        margin-bottom: 60px;
+    }
+    
+   
+
+    /*-----------------------------------------------
+    About
+    -----------------------------------------------*/
+    #about {
+        margin: 0 4%;
+    }
+
+    /*-----------------------------------------------
+    Guide
+    -----------------------------------------------*/
+    #guide {
+        margin: 0 4%;
+    }
+
+
+    /*-----------------------------------------------
+    detail
+    -----------------------------------------------*/
+    .cart_box {
+        display: inline-block;
+        width: 70%;
+        box-sizing: content-box;
+        text-align: center;
+    }
+    
+    .cart_button {
+        color: #ffffff;
+        background-color: #807B74;
+        text-decoration: none;
+        padding: 10px 10px;
+    }
+    
+}
