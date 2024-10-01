@@ -166,9 +166,10 @@ header .cart ul li:not(:last-child) {
 メインビジュアル
 ------------------------------------------------------------ */
 .main_visual img {
-    width: 100%;
+    /* ビューポート(ウィンドウサイズ)の幅いっぱいに合わせる */
+    width: 100vw;
     max-width: 1920px;
-    height: 700px;
+    height: 800px;
 
     /* 画像を引き伸ばさないための設定 */
     object-fit: cover;
