@@ -99,3 +99,22 @@ body {
   .profile {
     background: #f9f9ff;
   }
+
+
+  /* ------------------------------------------------------------
+スマホ対応
+------------------------------------------------------------ */
+@media screen and (max-width:600px) {
+  .hero {
+    background-position: -300px center;
+  }
+
+  .hero__inner {
+    padding: 80px 20px;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+    line-height: 1.4;
+  }
+}
