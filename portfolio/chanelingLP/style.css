@@ -106,11 +106,11 @@ body {
 ------------------------------------------------------------ */
 @media screen and (max-width:600px) {
   .hero {
-    background-position: -300px center;
+    background-position: -350px center;
   }
 
   .hero__inner {
-    padding: 80px 20px;
+    padding: 100px 20px 0;
   }
 
   .hero h2 {

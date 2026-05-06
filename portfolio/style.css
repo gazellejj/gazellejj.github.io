@@ -199,11 +199,12 @@ petfriend詳細ページ　petfriend_shokai.html
 ------------------------------------------------------------ */
 @media screen and (max-width:600px) {
   .hero {
-    background-position: -150px center;
+    background-position: -200px center;
   }
 
   .hero__inner {
-    padding: 80px 20px;
+           /* 上　 左右　下 */
+    padding: 100px 20px 0;
   }
 
   .hero h2 {
